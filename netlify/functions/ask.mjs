@@ -1,8 +1,12 @@
 // ظِلال — وظيفة سحابية تخفي مفتاح Gemini وتبني الطلب من سياق موثّق فقط
-// المتغيرات: GEMINI_API_KEY (مطلوب) ، GEMINI_MODEL (اختياري؛ الافتراضي gemini-3.8-flash)
+// المتغيرات:
+//   GEMINI_API_KEY + GOOGLE_GEMINI_BASE_URL — يحقنهما Netlify AI Gateway تلقائيًا (لا حاجة لمفتاح خاص)
+//   أو GEMINI_API_KEY خاص بك من Google AI Studio (عندها يُستخدم عنوان Google المباشر)
+//   GEMINI_MODEL (اختياري؛ الافتراضي gemini-3.8-flash)
 // المسار: /api/ask  —  GET للتحقق من الجاهزية، POST للسؤال أو التدقيق
 
 const MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+const BASE_URL = (process.env.GOOGLE_GEMINI_BASE_URL || 'https://generativelanguage.googleapis.com').replace(/\/+$/, '');
 const MAX_TEXT = 4000;
 const MAX_CTX = 8;
 
@@ -43,7 +47,7 @@ function parseJsonLoose(s) {
 
 export default async (req) => {
   const key = process.env.GEMINI_API_KEY;
-  if (req.method === 'GET') return json({ ok: !!key, model: key ? MODEL : null });
+  if (req.method === 'GET') return json({ ok: !!key, model: key ? MODEL : null, via: process.env.GOOGLE_GEMINI_BASE_URL ? 'netlify-ai-gateway' : (key ? 'google' : null) });
   if (req.method !== 'POST') return json({ ok: false, error: 'method' }, 405);
   if (!key) return json({ ok: false, error: 'not-configured' }, 503);
 
@@ -66,7 +70,7 @@ export default async (req) => {
   };
 
   try {
-    const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
+    const r = await fetch(`${BASE_URL}/v1beta/models/${MODEL}:generateContent`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
       body: JSON.stringify(payload),

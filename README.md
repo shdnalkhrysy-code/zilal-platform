@@ -5,7 +5,8 @@
 
 | | |
 |---|---|
-| 🌐 **الرابط الحي (Live Demo)** | `ضع الرابط هنا بعد النشر` |
+| 🌐 **الرابط الحي (Live Demo)** | https://strong-empanada-2d5d6f.netlify.app |
+| 💻 **المستودع** | https://github.com/shdnalkhrysy-code/zilal-platform |
 | 🎬 **الفيديو التوضيحي (≤ دقيقتين)** | `ضع الرابط هنا` |
 | 📑 **العرض التقديمي** | `ضع الرابط هنا` |
 
@@ -64,10 +65,11 @@ python3 -m http.server 8080      # ثم افتح http://localhost:8080
 
 1. ارفع المستودع إلى GitHub **عامًا (Public)**.
 2. في [Netlify](https://app.netlify.com): **Add new site → Import an existing project → GitHub** واختر المستودع. الإعدادات تُقرأ من `netlify.toml`.
-3. في **Site configuration → Environment variables** أضف:
-   - `GEMINI_API_KEY` = مفتاحك من Google AI Studio
+3. **الذكاء التوليدي يعمل تلقائيًا** عبر Netlify AI Gateway: يحقن Netlify المتغيرين `GEMINI_API_KEY` و`GOOGLE_GEMINI_BASE_URL` للوظيفة دون أي مفتاح منك، ويُحتسب الاستهلاك من رصيد Netlify.
+   - **بديل:** لتوفير رصيد Netlify، أضف مفتاحك المجاني من Google AI Studio في **Project configuration → Environment variables** باسم `GEMINI_API_KEY`؛ عندها تتصل الوظيفة بـ Google مباشرة.
    - `GEMINI_MODEL` (اختياري) = `gemini-3.8-flash`
-4. أعد النشر. افتح `https://<موقعك>/api/ask`: يجب أن ترى `{"ok":true,...}`.
+4. افتح `https://<موقعك>/api/ask`: يجب أن ترى `{"ok":true,...}`، ويوضح الحقل `via` مسار الاتصال.
+5. تأكد أن ظهور المشروع **Public** (زر **Make public** في صفحة المشروع)، وإلا طلب Netlify تسجيل الدخول من الزوار.
 
 > ⚠️ لا تضع المفتاح في أي ملف داخل المستودع. وخاصية السحب والإفلات في Netlify تنشر الصفحة دون الوظيفة السحابية، فيعمل الموقع في وضع المعجم فقط.
 
