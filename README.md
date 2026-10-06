@@ -7,9 +7,7 @@
 |---|---|
 | 🌐 **الرابط الحي (Live Demo)** | https://strong-empanada-2d5d6f.netlify.app |
 | 💻 **المستودع** | https://github.com/shdnalkhrysy-code/zilal-platform |
-| 🎬 **الفيديو التوضيحي (≤ دقيقتين)** | `ضع الرابط هنا` |
-| 📑 **العرض التقديمي** | `ضع الرابط هنا` |
-
+| 🎬 **الفيديو التوضيحي (≤ دقيقتين)** |https://drive.google.com/file/d/1g0m0EIrRdkNK5GOmDOe6njx6cF-fvj_1/view?usp=sharing|
 ---
 
 ## الفكرة في سطرين
