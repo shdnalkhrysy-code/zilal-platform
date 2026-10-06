@@ -5,8 +5,9 @@
 //   GEMINI_MODEL (اختياري؛ الافتراضي gemini-3.8-flash)
 // المسار: /api/ask  —  GET للتحقق من الجاهزية، POST للسؤال أو التدقيق
 
-const MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
-const BASE_URL = (process.env.GOOGLE_GEMINI_BASE_URL || 'https://generativelanguage.googleapis.com').replace(/\/+$/, '');
+// ملاحظة: Netlify يحقن متغيرات AI Gateway عند تشغيل الطلب، لذلك تُقرأ داخل الدالة لا عند تحميل الملف
+const getModel = () => process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+const getBaseUrl = () => (process.env.GOOGLE_GEMINI_BASE_URL || 'https://generativelanguage.googleapis.com').replace(/\/+$/, '');
 const MAX_TEXT = 4000;
 const MAX_CTX = 8;
 
@@ -47,6 +48,8 @@ function parseJsonLoose(s) {
 
 export default async (req) => {
   const key = process.env.GEMINI_API_KEY;
+  const MODEL = getModel();
+  const BASE_URL = getBaseUrl();
   if (req.method === 'GET') return json({ ok: !!key, model: key ? MODEL : null, via: process.env.GOOGLE_GEMINI_BASE_URL ? 'netlify-ai-gateway' : (key ? 'google' : null) });
   if (req.method !== 'POST') return json({ ok: false, error: 'method' }, 405);
   if (!key) return json({ ok: false, error: 'not-configured' }, 503);
