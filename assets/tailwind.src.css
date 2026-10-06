@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+  body { background: #07192a; -webkit-font-smoothing: antialiased; }
+  ::selection { background: rgba(28, 201, 155, .35); color: #fff; }
+  :focus-visible { outline: 2px solid #1cc99b; outline-offset: 2px; border-radius: 6px; }
+}
+
+@layer components {
+  .glass-nav { background: rgba(7, 25, 42, .86); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, .06); }
+  .card-glow { background: linear-gradient(180deg, rgba(14, 42, 64, .72), rgba(9, 29, 46, .72)); border: 1px solid #173349; box-shadow: 0 1px 0 rgba(255, 255, 255, .03) inset, 0 20px 40px -24px rgba(0, 0, 0, .6); }
+  .card-glow:hover { border-color: rgba(28, 201, 155, .28); }
+  .hero-gradient-text { background: linear-gradient(90deg, #ffffff 0%, #d7fff3 45%, #1cc99b 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .section-eyebrow { @apply inline-block px-3 py-1 rounded-full bg-brand-emerald/10 text-brand-emerald text-xs font-bold border border-brand-emerald/20 mb-3; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 bg-brand-emerald hover:bg-brand-emeraldHover text-brand-darker font-extrabold rounded-xl transition-all shadow-lg shadow-brand-emerald/20 disabled:opacity-60 disabled:cursor-wait; }
+  .btn-ghost { @apply inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 font-semibold rounded-xl transition-colors; }
+  .chip { @apply text-xs bg-slate-800/80 hover:bg-slate-700 text-slate-200 border border-white/10 px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap; }
+  .chip-active { @apply bg-brand-emerald/15 border-brand-emerald/40 text-brand-emerald; }
+  .field { @apply w-full bg-brand-darker border border-white/10 text-slate-100 rounded-xl focus:outline-none focus:border-brand-emerald placeholder:text-slate-500; }
+  .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+  .custom-scroll::-webkit-scrollbar-thumb { background: #1d3b55; border-radius: 6px; }
+
+  /* خريطة الظلال */
+  .hl { border-radius: 4px; padding: 0 2px; cursor: pointer; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .hl-tahweel { background: rgba(255, 107, 107, .16); color: #ffc4c4; text-decoration: underline wavy #ff6b6b; }
+  .hl-isqat { background: rgba(245, 181, 68, .15); color: #ffe2a8; text-decoration: underline wavy #f5b544; }
+  .hl-tamyee { background: rgba(124, 196, 255, .15); color: #cfe9ff; text-decoration: underline wavy #7cc4ff; }
+  .hl-sug { background: rgba(28, 201, 155, .14); color: #a7f3d9; border-radius: 4px; padding: 0 2px; }
+
+  /* شارات مستويات الثقة */
+  .lvl { @apply inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full border; }
+  .lvl-source { @apply bg-emerald-500/10 text-emerald-300 border-emerald-500/30; }
+  .lvl-analysis { @apply bg-sky-500/10 text-sky-300 border-sky-500/30; }
+  .lvl-ai { @apply bg-amber-500/10 text-amber-300 border-amber-500/30; }
+  .lvl-expert { @apply bg-rose-500/10 text-rose-300 border-rose-500/30; }
+
+  .cite { @apply inline-flex items-center text-[11px] font-bold px-1.5 py-0.5 mx-0.5 rounded-md bg-brand-emerald/15 text-brand-emerald border border-brand-emerald/30 hover:bg-brand-emerald hover:text-brand-darker transition-colors align-middle; }
+  .cite-bad { @apply inline-flex text-[11px] px-1.5 py-0.5 mx-0.5 rounded-md bg-rose-500/15 text-rose-300 border border-rose-500/30 line-through; }
+  .prose-zilal p { margin: .35rem 0; }
+  .prose-zilal strong { color: #fff; }
+}
+
+.drawer-enter { transform: translateX(-100%); }
+.toast { animation: toast-in .25s ease-out; }
+@keyframes toast-in { from { transform: translateY(12px); opacity: 0; } to { transform: none; opacity: 1; } }
+.typing span { display: inline-block; width: 6px; height: 6px; margin: 0 2px; border-radius: 99px; background: #1cc99b; animation: blink 1.2s infinite; }
+.typing span:nth-child(2) { animation-delay: .2s; }
+.typing span:nth-child(3) { animation-delay: .4s; }
+@keyframes blink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+.needle { transition: transform .9s cubic-bezier(.2, .9, .2, 1.1); transform-box: view-box; transform-origin: 100px 100px; }
+@media (prefers-reduced-motion: reduce) { .needle, .toast, .typing span { transition: none; animation: none; } html { scroll-behavior: auto; } }

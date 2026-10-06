@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ظِلال | كاشف الظلال الدلالية في ترجمة المفاهيم الإسلامية</title>
+  <meta name="description" content="ظِلال: منصة ذكاء اصطناعي تكشف التهويل والإسقاط والتمييع في ترجمة المصطلحات الإسلامية، وتسند كل جواب إلى مصدر معتمد برابط مباشر.">
+  <meta name="theme-color" content="#07192a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231cc99b'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23040d16' font-family='Tahoma' font-weight='700'%3E%D8%B8%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/tailwind.css">
+</head>
+<body class="bg-brand-dark text-slate-100 min-h-screen font-sans">
+
+<!-- شريط التنقل -->
+<header class="fixed top-0 inset-x-0 z-40 glass-nav">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-3 shrink-0" aria-label="ظلال — الرئيسية">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-emerald to-sky-400 flex items-center justify-center shadow-lg shadow-brand-emerald/20">
+        <span class="text-brand-darker text-2xl font-bold">ظ</span>
+      </div>
+      <div>
+        <span class="text-2xl font-bold tracking-tight text-white block leading-none">ظِـلال</span>
+        <span class="text-[10px] text-brand-emerald font-semibold tracking-wider block mt-1">Cultural Shadow AI Auditor</span>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300" aria-label="أقسام المنصة">
+      <a href="#scale" class="hover:text-brand-emerald transition-colors">ميزان الأمانة</a>
+      <a href="#dictionary" class="hover:text-brand-emerald transition-colors">المعجم الموثّق</a>
+      <a href="#ask" class="hover:text-brand-emerald transition-colors">اسأل ظلال</a>
+      <a href="#audit" class="hover:text-brand-emerald transition-colors">مدقق الترجمة</a>
+      <a href="#lab" class="hover:text-brand-emerald transition-colors">مختبر القياس</a>
+      <a href="#sources" class="hover:text-brand-emerald transition-colors">المصادر</a>
+    </nav>
+    <a href="#ask" class="btn-primary px-4 py-2.5 text-sm">اسأل ظلال</a>
+  </div>
+  <nav class="lg:hidden flex gap-2 overflow-x-auto custom-scroll px-4 pb-2 -mt-1" aria-label="أقسام المنصة (جوال)">
+    <a href="#scale" class="chip">ميزان الأمانة</a>
+    <a href="#dictionary" class="chip">المعجم</a>
+    <a href="#ask" class="chip">اسأل ظلال</a>
+    <a href="#audit" class="chip">المدقق</a>
+    <a href="#lab" class="chip">المختبر</a>
+    <a href="#sources" class="chip">المصادر</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- 1. الواجهة -->
+<section class="pt-36 sm:pt-40 pb-16 relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_-20%,rgba(28,201,155,0.18),rgba(255,255,255,0))] pointer-events-none"></div>
+  <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-sky-500/10 blur-3xl pointer-events-none"></div>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-emerald/10 border border-brand-emerald/25 text-brand-emerald text-xs font-bold mb-7">
+      <span class="w-2 h-2 rounded-full bg-brand-emerald animate-pulse"></span>
+      مسار صناعة المحتوى متعدد اللغات والتوطين الثقافي
+    </div>
+    <h1 class="text-4xl sm:text-6xl font-bold leading-tight sm:leading-tight mb-6 hero-gradient-text">
+      نكشف ما تقوله الترجمة...<br>دون أن تكتبه.
+    </h1>
+    <p class="text-lg sm:text-xl text-brand-textMuted max-w-3xl mx-auto leading-relaxed mb-9">
+      يرصد <span class="text-white font-semibold">«ظِلال»</span> الظلال الثقافية في ترجمة المصطلحات الإسلامية بالاتجاهين:
+      <span class="text-rose-300">التهويل</span> و<span class="text-amber-300">الإسقاط</span> و<span class="text-sky-300">التمييع</span>،
+      ثم يعيد كل مصطلح إلى تعريفه في مصدر معتمد برابط مباشر. <span class="text-white">لا جواب بلا مصدر.</span>
+    </p>
+
+    <!-- بحث الواجهة -->
+    <div class="relative max-w-2xl mx-auto text-right" id="heroSearchWrap">
+      <label for="heroSearch" class="sr-only">ابحث في المعجم الموثق</label>
+      <div class="flex items-center gap-2 bg-brand-card border border-brand-cardBorder focus-within:border-brand-emerald rounded-2xl p-2 shadow-2xl shadow-black/40">
+        <svg class="w-5 h-5 text-brand-emerald mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"/></svg>
+        <input id="heroSearch" type="search" autocomplete="off" class="flex-1 bg-transparent text-base sm:text-lg text-white placeholder:text-slate-500 focus:outline-none py-2" placeholder="ابحث: القوامة، zakat، فتوى، Jihad…">
+        <button id="heroAskBtn" class="btn-primary px-4 py-2.5 text-sm">اسأل</button>
+      </div>
+      <div id="heroResults" class="hidden absolute z-30 inset-x-0 mt-2 bg-brand-card border border-brand-cardBorder rounded-2xl shadow-2xl shadow-black/50 max-h-96 overflow-y-auto custom-scroll"></div>
+    </div>
+
+    <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto" id="heroStats">
+      <div class="card-glow rounded-2xl p-4"><div class="text-2xl sm:text-3xl font-bold text-brand-emerald" data-stat="terms">—</div><div class="text-xs text-brand-textMuted mt-1">مصطلحًا موثّقًا برابطه</div></div>
+      <div class="card-glow rounded-2xl p-4"><div class="text-2xl sm:text-3xl font-bold text-sky-300" data-stat="english">—</div><div class="text-xs text-brand-textMuted mt-1">بترجمة إنجليزية من المصدر</div></div>
+      <div class="card-glow rounded-2xl p-4"><div class="text-2xl sm:text-3xl font-bold text-amber-300" data-stat="rules">—</div><div class="text-xs text-brand-textMuted mt-1">قاعدة رصد للظلال</div></div>
+      <div class="card-glow rounded-2xl p-4"><div class="text-2xl sm:text-3xl font-bold text-white">7</div><div class="text-xs text-brand-textMuted mt-1">مصادر معتمدة فقط</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. المشكلة -->
+<section id="problem" class="py-20 bg-brand-darker/60 border-y border-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="section-eyebrow">المشكلة</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">حين تبدو الترجمة صحيحة... ويصل المعنى مشوّهًا</h2>
+      <p class="text-brand-textMuted text-base sm:text-lg">الترجمة المعاصرة قلّما تخطئ نحويًا، لكنها قد تستعير مفردات محمّلة بتاريخ ثقافة أخرى، أو تخفّف المعنى الشرعي لترضي القارئ. وفي الحالتين يصل للقارئ غير العربي مفهوم غير الذي قصده النص.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="card-glow rounded-2xl p-7 border-t-4 border-t-sky-400">
+        <div class="text-sky-400 text-xs font-bold mb-3">المرحلة الأولى</div>
+        <h3 class="text-xl font-bold text-white mb-3">ترجمة حرفية قاموسية</h3>
+        <p class="text-sm text-brand-textMuted leading-relaxed">استبدال المصطلح بمفردة إنجليزية شائعة دون مراعاة حدّه الاصطلاحي في العلوم الشرعية.</p>
+        <div class="mt-5 p-3 bg-slate-900/60 rounded-lg text-xs font-mono text-sky-300 text-left border border-white/5" dir="ltr">Holy War · Edict · Charity</div>
+      </div>
+      <div class="card-glow rounded-2xl p-7 border-t-4 border-t-brand-warning">
+        <div class="text-brand-warning text-xs font-bold mb-3">المرحلة غير المرئية</div>
+        <h3 class="text-xl font-bold text-white mb-3">حمولة ثقافية مضمرة</h3>
+        <p class="text-sm text-brand-textMuted leading-relaxed">تستدعي المفردة تاريخًا لا علاقة له بالمفهوم: حروبًا دينية أوروبية، أو كهنوتًا، أو تبرعًا اختياريًا بدل فريضة.</p>
+        <div class="mt-5 p-3 bg-slate-900/60 rounded-lg text-xs font-mono text-amber-300 text-left border border-white/5" dir="ltr">crusade · priesthood · optional giving</div>
+      </div>
+      <div class="card-glow rounded-2xl p-7 border-t-4 border-t-brand-danger">
+        <div class="text-brand-danger text-xs font-bold mb-3">النتيجة</div>
+        <h3 class="text-xl font-bold text-white mb-3">فهم منحرف في الاتجاهين</h3>
+        <p class="text-sm text-brand-textMuted leading-relaxed">إمّا صورة مهوّلة تنفّر القارئ، أو صورة مميّعة تُفقد المصطلح معناه. وكلاهما خيانة للأمانة.</p>
+        <div class="mt-5 p-3 bg-slate-900/60 rounded-lg text-xs font-mono text-rose-300 text-left border border-white/5" dir="ltr">distorted ⇄ diluted</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. ميزان الأمانة -->
+<section id="scale" class="py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="section-eyebrow">ميزان الأمانة</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">للظل طرفان... والأمانة في المنتصف</h2>
+      <p class="text-brand-textMuted text-base sm:text-lg">«ظِلال» لا يجمّل المعنى ولا يشوّهه، بل يعيده إلى تعريفه في المصدر. في الوسط نص المصدر حرفيًا، وعلى الطرفين ما يرصده المحرك.</p>
+    </div>
+    <div class="flex items-center justify-between text-xs font-bold mb-3 px-1">
+      <span class="text-rose-300">◀ تهويل / إسقاط</span>
+      <span class="text-brand-emerald">أمين — نص المصدر</span>
+      <span class="text-sky-300">تمييع ▶</span>
+    </div>
+    <div id="scaleCards" class="space-y-4" aria-live="polite">
+      <div class="card-glow rounded-2xl p-6 text-center text-brand-textMuted text-sm">جارٍ تحميل التعريفات من القاعدة الموثقة…</div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. المعجم الموثّق -->
+<section id="dictionary" class="py-20 bg-brand-darker/60 border-y border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="section-eyebrow">المعجم الموثّق</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">ابحث في <span data-stat="terms">—</span> مصطلحًا… كل نتيجة برابطها</h2>
+      <p class="text-brand-textMuted text-base">البحث يفهم العربية بلا تشكيل ومع «ال» أو بدونها، ويفهم الإنجليزية والكتابة الصوتية (zakah / zakat / qiwamah). النصوص منقولة حرفيًا من موسوعة المصطلحات والقواميس الإسلامية المترجمة.</p>
+    </div>
+    <div class="bg-brand-card border border-brand-cardBorder rounded-2xl p-4 sm:p-5 mb-6">
+      <div class="flex flex-col sm:flex-row gap-3">
+        <label for="dictSearch" class="sr-only">بحث في المعجم</label>
+        <input id="dictSearch" type="search" autocomplete="off" class="field px-4 py-3 text-base" placeholder="اكتب مصطلحًا بالعربية أو الإنجليزية…">
+        <select id="dictCategory" class="field px-3 py-3 text-sm sm:w-56" aria-label="تصفية حسب التصنيف">
+          <option value="">كل التصنيفات</option>
+        </select>
+      </div>
+      <div class="flex flex-wrap gap-2 mt-3" id="dictQuick">
+        <span class="text-xs text-brand-textMuted self-center ml-1">جرّب:</span>
+        <button class="chip" data-q="القوامة">القوامة</button>
+        <button class="chip" data-q="zakat">zakat</button>
+        <button class="chip" data-q="الربا">الربا</button>
+        <button class="chip" data-q="fatwa">fatwa</button>
+        <button class="chip" data-q="توحيد">توحيد</button>
+        <button class="chip" data-q="الجن">الجن</button>
+        <button class="chip" data-q="بدعة">بدعة</button>
+      </div>
+    </div>
+    <div class="flex items-center justify-between mb-4">
+      <span id="dictCount" class="text-xs text-brand-textMuted"></span>
+      <span class="text-xs text-brand-textMuted flex items-center gap-2"><span class="lvl lvl-source">● نص المصدر</span><span class="lvl lvl-analysis">● عليه ظل معروف</span></span>
+    </div>
+    <div id="dictResults" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- 5. اسأل ظلال -->
+<section id="ask" class="py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="section-eyebrow">اسأل ظلال</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">بوت يجيب من المصادر… أو يعتذر</h2>
+      <p class="text-brand-textMuted text-base">اسأل عن مصطلح، أو الصق مقالًا مترجمًا ليحدد مواضع الخلل مع المصدر والرابط. لا يفتي، ولا يترجم الآيات من عنده، ويمتنع حين لا يجد مرجعًا.</p>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div class="lg:col-span-8 bg-brand-card border border-brand-cardBorder rounded-2xl flex flex-col h-[640px]">
+        <div class="flex items-center justify-between gap-3 px-5 py-3 border-b border-white/5">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-brand-emerald text-brand-darker font-bold flex items-center justify-center">ظ</div>
+            <div>
+              <div class="text-sm font-bold text-white">ظِلال</div>
+              <div id="aiModeLabel" class="text-[11px] text-brand-textMuted">وضع المعجم — يعمل دائمًا</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <label class="flex items-center gap-2 text-xs text-slate-300 cursor-pointer select-none" title="يتطلب تفعيل الوظيفة السحابية أو مفتاحًا للتجربة">
+              <input id="aiToggle" type="checkbox" class="accent-emerald-500 w-4 h-4" disabled>
+              الذكاء التوليدي المقيّد
+            </label>
+            <button id="aiSettingsBtn" class="text-slate-400 hover:text-white p-1" aria-label="إعدادات الذكاء التوليدي">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.3 4.3c.4-1.8 3-1.8 3.4 0a1.7 1.7 0 002.6 1.1c1.6-1 3.4.8 2.4 2.4a1.7 1.7 0 001 2.6c1.8.4 1.8 3 0 3.4a1.7 1.7 0 00-1 2.6c1 1.6-.8 3.4-2.4 2.4a1.7 1.7 0 00-2.6 1c-.4 1.8-3 1.8-3.4 0a1.7 1.7 0 00-2.6-1c-1.6 1-3.4-.8-2.4-2.4a1.7 1.7 0 00-1-2.6c-1.8-.4-1.8-3 0-3.4a1.7 1.7 0 001-2.6c-1-1.6.8-3.4 2.4-2.4 1 .6 2.3.1 2.6-1.1z"/><circle cx="12" cy="12" r="3" stroke-width="2"/></svg>
+            </button>
+          </div>
+        </div>
+        <div id="aiSettings" class="hidden px-5 py-3 border-b border-white/5 bg-brand-darker/60 text-xs text-brand-textMuted space-y-2">
+          <p>عند نشر المنصة على Netlify مع متغير <code class="text-brand-emerald">GEMINI_API_KEY</code> يعمل الذكاء التوليدي تلقائيًا ويبقى المفتاح في الخادم. للتجربة المحلية فقط يمكنك إدخال مفتاحك هنا، ولا يُحفظ بعد إغلاق الصفحة.</p>
+          <div class="flex gap-2">
+            <input id="userKey" type="password" class="field px-3 py-2 text-xs font-mono" dir="ltr" placeholder="Gemini API key (اختياري — للتجربة المحلية)">
+            <button id="userKeySave" class="btn-ghost px-3 py-2 text-xs">تفعيل</button>
+          </div>
+        </div>
+        <div id="chatLog" class="flex-1 overflow-y-auto custom-scroll p-5 space-y-4" aria-live="polite"></div>
+        <div class="p-4 border-t border-white/5">
+          <div class="flex flex-wrap gap-2 mb-3" id="chatQuick">
+            <button class="chip" data-ask="ما معنى القوامة؟">ما معنى القوامة؟</button>
+            <button class="chip" data-ask="What does zakat mean?">What does zakat mean?</button>
+            <button class="chip" data-ask="ما حكم التأمين التجاري؟">سؤال فتوى</button>
+            <button class="chip" data-ask="ترجم لي آية الرجال قوامون على النساء">ترجمة آية</button>
+            <button class="chip" data-ask="Critics say sharia is a draconian law. Muslims pay zakat as a voluntary charity, and the local priest of the mosque leads the prayer. Jihad means only an inner spiritual struggle.">دقّق مقالًا</button>
+          </div>
+          <form id="chatForm" class="flex gap-2">
+            <label for="chatInput" class="sr-only">اكتب سؤالك</label>
+            <textarea id="chatInput" rows="1" class="field px-4 py-3 text-sm resize-none custom-scroll" placeholder="اسأل عن مصطلح أو الصق نصًا مترجمًا…"></textarea>
+            <button id="chatSend" type="submit" class="btn-primary px-5 text-sm">إرسال</button>
+          </form>
+        </div>
+      </div>
+      <aside class="lg:col-span-4 space-y-4">
+        <div class="card-glow rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-3">مستويات الثقة في كل إجابة</h3>
+          <ul class="space-y-3 text-xs text-brand-textMuted">
+            <li><span class="lvl lvl-source">نص المصدر</span><p class="mt-1">منقول حرفيًا من المصدر المعتمد مع رابطه.</p></li>
+            <li><span class="lvl lvl-analysis">تحليل ظلال</span><p class="mt-1">قاعدة رصد صاغها الفريق، وكل قاعدة تحيل إلى تعريف المصدر.</p></li>
+            <li><span class="lvl lvl-ai">صياغة الذكاء الاصطناعي</span><p class="mt-1">مقيّدة بالمراجع المرفقة؛ أي مرجع خارج القاعدة يُحذف تلقائيًا.</p></li>
+            <li><span class="lvl lvl-expert">يحتاج مختصًا</span><p class="mt-1">أسئلة الفتوى والحالات الحساسة تُحال لأهل العلم.</p></li>
+          </ul>
+        </div>
+        <div class="card-glow rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white mb-2">ما لا يفعله ظلال (عمدًا)</h3>
+          <ul class="text-xs text-brand-textMuted space-y-2 leading-relaxed">
+            <li>✕ لا يُصدر فتوى ولا حكمًا شرعيًا.</li>
+            <li>✕ لا يترجم آيات القرآن من عنده، بل يحيل إلى مجمع الملك فهد.</li>
+            <li>✕ لا يجيب عن مصطلح غير موجود في المصادر المعتمدة.</li>
+          </ul>
+        </div>
+        <div class="card-glow rounded-2xl p-5">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-sm font-bold text-white">طلبات الإحالة للمختص</h3>
+            <span id="referralCount" class="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded font-mono">0</span>
+          </div>
+          <p class="text-xs text-brand-textMuted mb-3">كل إحالة تُجمع هنا مع سياقها لتُرسل للمختص الشرعي في الفريق.</p>
+          <div id="referralList" class="space-y-2 max-h-48 overflow-y-auto custom-scroll text-xs"></div>
+          <button id="referralCopy" class="btn-ghost w-full mt-3 py-2 text-xs hidden">نسخ كل الطلبات</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 6. مدقق الترجمة -->
+<section id="audit" class="py-20 bg-brand-darker relative border-y-2 border-brand-emerald/20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="section-eyebrow">المختبر التفاعلي المباشر</span>
+      <h2 class="text-3xl sm:text-5xl font-bold text-white mb-4">مدقق الترجمة وخريطة الظلال</h2>
+      <p class="text-brand-textMuted text-base">الصق نصًا إنجليزيًا مترجمًا، فيلوّن المحرك مواضع الظل حسب نوعها، ويزنها على ميزان الأمانة، ويعرض لكل موضع تعريف المصدر وبديله.</p>
+    </div>
+    <div class="bg-brand-card rounded-2xl p-5 border border-brand-cardBorder mb-6">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs font-bold text-slate-300 ml-2">أمثلة جاهزة:</span>
+        <button class="chip" data-example="1">القوامة والشريعة</button>
+        <button class="chip" data-example="2">الجهاد والفتوى</button>
+        <button class="chip" data-example="3">الحجاب والأمة</button>
+        <button class="chip" data-example="4">مثال التمييع</button>
+        <button class="chip" data-example="5">ترجمة سليمة (للتحقق من عدم الإنذار الكاذب)</button>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div class="lg:col-span-7 space-y-6">
+        <div class="bg-brand-card rounded-2xl p-5 border border-brand-cardBorder">
+          <div class="flex items-center justify-between mb-3">
+            <label for="auditInput" class="text-sm font-bold text-white">النص الإنجليزي المراد تدقيقه</label>
+            <button id="auditClear" class="text-xs text-brand-textMuted hover:text-white">مسح</button>
+          </div>
+          <textarea id="auditInput" rows="6" dir="ltr" class="field p-4 text-sm leading-relaxed text-left font-mono custom-scroll" placeholder="Type or paste an English translation here…"></textarea>
+          <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-2">
+              <button id="auditRun" class="btn-primary px-6 py-3 text-sm">حلّل النص دلاليًا</button>
+              <button id="auditDeep" class="btn-ghost px-4 py-3 text-sm hidden">تحليل معمّق بالذكاء التوليدي</button>
+            </div>
+            <span id="auditWords" class="text-xs text-brand-textMuted">0 كلمة</span>
+          </div>
+        </div>
+        <div id="auditMapBox" class="bg-brand-card rounded-2xl p-5 border border-brand-cardBorder hidden">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <h3 class="text-sm font-bold text-white">خريطة الظلال</h3>
+            <div class="flex gap-2 text-[11px]">
+              <span class="hl hl-tahweel">تهويل</span><span class="hl hl-isqat">إسقاط</span><span class="hl hl-tamyee">تمييع</span>
+            </div>
+          </div>
+          <div id="auditMap" dir="ltr" class="text-sm text-left text-slate-300 leading-loose bg-brand-darker p-4 rounded-xl border border-white/5"></div>
+          <div id="auditApproved" class="mt-3 flex flex-wrap gap-2"></div>
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-sm font-bold text-brand-emerald">النص مع البدائل المقترحة <span class="text-[11px] text-brand-textMuted font-normal">(اقتراح يراجعه المترجم — لا يُعدّل الأصل)</span></h3>
+              <button id="auditCopy" class="text-xs text-brand-emerald hover:underline">نسخ</button>
+            </div>
+            <div id="auditAdapted" dir="ltr" class="text-sm text-left text-slate-200 leading-loose bg-brand-darker p-4 rounded-xl border border-emerald-500/20"></div>
+          </div>
+          <div id="auditDeepBox" class="mt-5 hidden"></div>
+        </div>
+      </div>
+      <div class="lg:col-span-5 space-y-6">
+        <div class="bg-brand-card rounded-2xl p-5 border border-brand-cardBorder">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm font-bold text-white">ميزان الأمانة</span>
+            <span id="scoreBadge" class="text-xs font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-300">جاهز للفحص</span>
+          </div>
+          <svg viewBox="0 0 200 120" class="w-full max-w-xs mx-auto block" role="img" aria-labelledby="gaugeTitle">
+            <title id="gaugeTitle">ميزان الأمانة: يمين تمييع، يسار تهويل وإسقاط، والوسط أمين</title>
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#7cc4ff"/><stop offset=".5" stop-color="#1cc99b"/><stop offset="1" stop-color="#ff6b6b"/></linearGradient>
+            </defs>
+            <path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="url(#g1)" stroke-width="14" stroke-linecap="round" opacity=".9"/>
+            <g id="gaugeNeedle" class="needle"><line x1="100" y1="100" x2="100" y2="30" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+            <circle cx="100" cy="100" r="7" fill="#fff"/>
+            <text x="22" y="118" font-size="10" fill="#7cc4ff" text-anchor="middle">تمييع</text>
+            <text x="100" y="118" font-size="10" fill="#1cc99b" text-anchor="middle">أمين</text>
+            <text x="178" y="118" font-size="10" fill="#ff6b6b" text-anchor="middle">تهويل</text>
+          </svg>
+          <div class="grid grid-cols-3 gap-2 mt-3 text-center">
+            <div class="rounded-lg bg-rose-500/10 p-2"><div id="cntTahweel" class="text-lg font-bold text-rose-300">0</div><div class="text-[10px] text-brand-textMuted">تهويل</div></div>
+            <div class="rounded-lg bg-amber-500/10 p-2"><div id="cntIsqat" class="text-lg font-bold text-amber-300">0</div><div class="text-[10px] text-brand-textMuted">إسقاط</div></div>
+            <div class="rounded-lg bg-sky-500/10 p-2"><div id="cntTamyee" class="text-lg font-bold text-sky-300">0</div><div class="text-[10px] text-brand-textMuted">تمييع</div></div>
+          </div>
+          <div class="mt-4 flex items-baseline gap-2">
+            <span id="scoreNumber" class="text-4xl font-bold text-brand-emerald">--</span>
+            <span class="text-brand-textMuted text-sm">/ 100 مؤشر السلامة الدلالية</span>
+          </div>
+          <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden mt-2"><div id="scoreBar" class="h-full bg-brand-emerald transition-all duration-700" style="width:0%"></div></div>
+          <p id="scoreDescription" class="text-xs text-brand-textMuted mt-3 leading-relaxed">أدخل النص واضغط «حلّل» لعرض النتيجة.</p>
+        </div>
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-sm font-bold text-white">التنبيهات المفصّلة</h3>
+            <span id="alertsCount" class="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded font-mono">0 رصد</span>
+          </div>
+          <div id="alertsContainer" class="space-y-4 max-h-[640px] overflow-y-auto custom-scroll pl-1">
+            <div class="bg-slate-900/40 rounded-xl p-8 text-center border border-dashed border-white/10 text-brand-textMuted text-xs">لا توجد نتائج بعد. اختر مثالًا أو الصق نصك.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. كيف يعمل -->
+<section id="how" class="py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="section-eyebrow">المعمارية</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">من النص إلى بديل موثّق… في مسار قابل للتفسير</h2>
+      <p class="text-brand-textMuted text-base">كل خطوة تعمل محليًا في المتصفح ويمكن إعادة اختبارها، والنموذج التوليدي طبقة اختيارية مقيّدة لا يقوم عليها المنتج.</p>
+    </div>
+    <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <li class="card-glow rounded-2xl p-5"><div class="text-brand-emerald font-bold text-2xl mb-2">01</div><h3 class="font-bold text-white mb-1">تطبيع النص</h3><p class="text-xs text-brand-textMuted leading-relaxed">إزالة التشكيل وتوحيد الهمزات والتاء المربوطة، وتوحيد الكتابة الصوتية (zakah = zakat).</p></li>
+      <li class="card-glow rounded-2xl p-5"><div class="text-amber-300 font-bold text-2xl mb-2">02</div><h3 class="font-bold text-white mb-1">رصد سياقي للظلال</h3><p class="text-xs text-brand-textMuted leading-relaxed"><span data-stat="rules">—</span> قاعدة رصد، كل منها مشروطة بسياق الجملة لتقليل الإنذار الكاذب.</p></li>
+      <li class="card-glow rounded-2xl p-5"><div class="text-sky-300 font-bold text-2xl mb-2">03</div><h3 class="font-bold text-white mb-1">استرجاع من المصدر</h3><p class="text-xs text-brand-textMuted leading-relaxed">جلب التعريف العربي والترجمة الإنجليزية والرابط من القاعدة الموثّقة (RAG).</p></li>
+      <li class="card-glow rounded-2xl p-5"><div class="text-amber-200 font-bold text-2xl mb-2">04</div><h3 class="font-bold text-white mb-1">توليد مقيّد (اختياري)</h3><p class="text-xs text-brand-textMuted leading-relaxed">Gemini يصوغ الجواب من المقتطفات المرفقة فقط، ثم يُفحص كل مرجع آليًا.</p></li>
+      <li class="card-glow rounded-2xl p-5"><div class="text-rose-300 font-bold text-2xl mb-2">05</div><h3 class="font-bold text-white mb-1">امتناع وإحالة</h3><p class="text-xs text-brand-textMuted leading-relaxed">لا مرجع = لا جواب. وأسئلة الفتوى وترجمة الآيات تُحال إلى أهلها.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. مختبر القياس -->
+<section id="lab" class="py-20 bg-brand-darker/60 border-y border-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="section-eyebrow">مختبر القياس</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">نقيس الفهم... وأمام عينيك</h2>
+      <p class="text-brand-textMuted text-base">هذه ليست أرقامًا مكتوبة؛ بل تُحسب الآن في متصفحك عند فتح الصفحة، على مجموعة اختبار منشورة في المستودع، وتُقارَن بقاعدة الإصدار السابق على الحالات نفسها.</p>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8" id="labTiles"></div>
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+      <div class="lg:col-span-3 card-glow rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-4">قبل الإسناد إلى المصادر (الإصدار السابق) مقابل ظلال الحالي</h3>
+        <div class="h-64"><canvas id="labChart" aria-label="مقارنة نتائج الاختبار" role="img"></canvas></div>
+      </div>
+      <div class="lg:col-span-2 card-glow rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-3">جرّب جملتك</h3>
+        <textarea id="labTry" rows="3" dir="ltr" class="field p-3 text-sm font-mono" placeholder="e.g. Zakat is a kind of charity."></textarea>
+        <button id="labTryBtn" class="btn-primary w-full mt-3 py-2.5 text-sm">افحص</button>
+        <div id="labTryOut" class="mt-3 text-xs space-y-2"></div>
+        <p class="text-[11px] text-brand-textMuted mt-4 leading-relaxed"><strong class="text-slate-300">حدود القياس:</strong> صاغ الفريق الحالات أثناء التطوير، فهي اختبار انحدار داخلي وليست تقييمًا مستقلًا. وأدرجنا عمدًا حالات يخطئ فيها المحرك: H02 (إنذار كاذب)، وH03–H05 (صياغات غير مباشرة يفوتها الرصد المحلي ويغطيها التحليل التوليدي عند تفعيله). الخطوة التالية: اختبار مع مترجمين وقرّاء غير عرب.</p>
+      </div>
+    </div>
+    <details class="mt-6 card-glow rounded-2xl p-5">
+      <summary class="cursor-pointer text-sm font-bold text-white">عرض كل الحالات ونتائجها</summary>
+      <div class="overflow-x-auto mt-4"><table class="w-full text-xs" id="labTable"></table></div>
+    </details>
+  </div>
+</section>
+
+<!-- 9. سجل الإنجاز -->
+<section id="progress" class="py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="section-eyebrow">ما أنجزناه وما نقترحه</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">نفصل بوضوح بين المنجز والمقترح</h2>
+    </div>
+    <div class="overflow-x-auto card-glow rounded-2xl">
+      <table class="w-full text-sm">
+        <thead><tr class="border-b border-white/10 text-slate-400">
+          <th class="py-3 px-4 text-right font-bold">الجانب</th>
+          <th class="py-3 px-4 text-right font-bold">الإصدار السابق</th>
+          <th class="py-3 px-4 text-right font-bold text-brand-emerald">ظلال الآن (منجز ✓)</th>
+        </tr></thead>
+        <tbody class="divide-y divide-white/5 text-slate-300">
+          <tr><td class="py-3 px-4 text-white font-semibold">قاعدة المصطلحات</td><td class="py-3 px-4">25 مصطلحًا مكتوبة يدويًا بلا روابط</td><td class="py-3 px-4"><span data-stat="terms">—</span> مصطلحًا منقولة حرفيًا من المصدر، لكل منها رابط</td></tr>
+          <tr><td class="py-3 px-4 text-white font-semibold">المراجع</td><td class="py-3 px-4">مراجع عامة بعضها خارج القائمة المعتمدة</td><td class="py-3 px-4">7 مصادر معتمدة فقط، والرابط على مستوى المصطلح</td></tr>
+          <tr><td class="py-3 px-4 text-white font-semibold">اتجاه الرصد</td><td class="py-3 px-4">التهويل فقط</td><td class="py-3 px-4">ميزان باتجاهين: تهويل/إسقاط، وتمييع</td></tr>
+          <tr><td class="py-3 px-4 text-white font-semibold">الإنذار الكاذب</td><td class="py-3 px-4">ينبّه على ترجمات المصدر نفسه (fear، disobedience، veil)</td><td class="py-3 px-4">قاعدة صارمة: لا يُعدّ تشويهًا ما كان ترجمة المصدر</td></tr>
+          <tr><td class="py-3 px-4 text-white font-semibold">الذكاء التوليدي</td><td class="py-3 px-4">رابط معطّل، ومفتاح في المتصفح</td><td class="py-3 px-4">وظيفة سحابية تخفي المفتاح، وتحقق آلي من المراجع، وعودة تلقائية للمعجم عند التعطل</td></tr>
+          <tr><td class="py-3 px-4 text-white font-semibold">الأرقام</td><td class="py-3 px-4">مستهدفات مكتوبة (92%، 85%…)</td><td class="py-3 px-4">مختبر حي يحسب النتائج أمام اللجنة ويعيدها بضغطة</td></tr>
+          <tr><td class="py-3 px-4 text-white font-semibold">الامتناع والإحالة</td><td class="py-3 px-4">زر تنبيه فقط</td><td class="py-3 px-4">امتناع عند غياب المرجع، وإحالة للفتوى وترجمة الآيات، وسجل إحالات</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+      <div class="card-glow rounded-2xl p-6">
+        <div class="text-brand-emerald text-xs font-bold mb-2">المرحلة الأولى — منجزة الآن</div>
+        <h3 class="text-lg font-bold text-white mb-2">المدقق والمعجم والبوت</h3>
+        <ul class="text-xs text-brand-textMuted space-y-2 leading-relaxed"><li>• معجم موثّق ببحث ذكي عربي وإنجليزي.</li><li>• مدقق ترجمة بميزان الأمانة وخريطة الظلال.</li><li>• بوت بالمصادر والامتناع والإحالة، ومختبر قياس حي.</li></ul>
+      </div>
+      <div class="card-glow rounded-2xl p-6">
+        <div class="text-sky-300 text-xs font-bold mb-2">المرحلة الثانية — مقترحة</div>
+        <h3 class="text-lg font-bold text-white mb-2">الربط المؤسسي واللغات</h3>
+        <ul class="text-xs text-brand-textMuted space-y-2 leading-relaxed"><li>• ربط القاعدة المركزية (Central-DB) عند منح الصلاحية.</li><li>• تدقيق الفرنسية والأوردية والإندونيسية من ترجمات الموسوعة نفسها.</li><li>• واجهة API لدور النشر ومراكز الترجمة.</li></ul>
+      </div>
+      <div class="card-glow rounded-2xl p-6">
+        <div class="text-amber-300 text-xs font-bold mb-2">المرحلة الثالثة — مقترحة</div>
+        <h3 class="text-lg font-bold text-white mb-2">منظومة مراجعة مستمرة</h3>
+        <ul class="text-xs text-brand-textMuted space-y-2 leading-relaxed"><li>• لوحة للمختصين لاعتماد قواعد الظلال وتحديثها.</li><li>• إبلاغ المصادر بالأخطاء المكتشفة فيها تلقائيًا.</li><li>• دراسة فهم مع قرّاء غير عرب لقياس الأثر.</li></ul>
+      </div>
+    </div>
+    <div class="mt-8 bg-gradient-to-l from-slate-900 to-brand-card rounded-2xl p-6 border border-brand-emerald/20 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+      <div><div class="text-brand-emerald text-xs font-bold mb-1">تكلفة التشغيل</div><p class="text-brand-textMuted text-xs leading-relaxed">وضع المعجم ملفات ثابتة بلا خادم، فتكلفته صفر. والذكاء التوليدي يُحسب حسب الاستخدام، مع حد لطول المدخلات وعدد المراجع في كل طلب.</p></div>
+      <div><div class="text-brand-emerald text-xs font-bold mb-1">بديل الاعتماد الحرج</div><p class="text-brand-textMuted text-xs leading-relaxed">إذا تعطل Gemini أو نفد الرصيد يعود البوت تلقائيًا إلى وضع المعجم، فيبقى البحث والتدقيق والإحالة تعمل.</p></div>
+      <div><div class="text-brand-emerald text-xs font-bold mb-1">تحديث المحتوى</div><p class="text-brand-textMuted text-xs leading-relaxed">سكربت سحب موثّق في المستودع يعيد بناء القاعدة من المصدر، وقائمة مراجعة شرعية لاعتماد قواعد الظلال.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. المصادر -->
+<section id="sources" class="py-20 bg-brand-darker/60 border-t border-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="section-eyebrow">المصادر المعتمدة</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">سبعة مصادر فقط… ولا شيء غيرها</h2>
+      <p class="text-brand-textMuted text-base">نلتزم بقائمة المصادر التي حددها منظمو التحدي، ونبيّن دور كل مصدر وحالة دمجه بصدق.</p>
+    </div>
+    <div id="sourcesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    <p id="dataMeta" class="text-[11px] text-brand-textMuted mt-6 text-center leading-relaxed"></p>
+  </div>
+</section>
+
+<section class="py-20 text-center">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-3xl sm:text-5xl font-bold text-white mb-6">المعنى أمانة... فلنحمِ نقاء الرسالة</h2>
+    <p class="text-brand-textMuted text-base sm:text-lg mb-8 max-w-2xl mx-auto">جرّب المعجم، واسأل البوت، ودقّق ترجمتك، ثم أعد تشغيل المختبر بنفسك.</p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="#audit" class="btn-primary px-8 py-4 text-base">ابدأ التدقيق الآن</a>
+      <a href="#lab" class="btn-ghost px-8 py-4 text-base">أعد القياس بنفسك</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="bg-brand-darker py-10 border-t border-white/5 text-sm text-brand-textMuted">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-right">
+    <div class="flex items-center gap-3">
+      <div class="w-7 h-7 rounded-lg bg-brand-emerald text-brand-darker font-bold flex items-center justify-center text-sm">ظ</div>
+      <span class="text-white font-bold">ظِلال — مشروع ذكاء اصطناعي لحماية المعنى</span>
+    </div>
+    <div class="text-xs">فريق ظِلال — تحدي الذكاء الاصطناعي في خدمة المحتوى الإسلامي 2026 · مسار صناعة المحتوى متعدد اللغات والتوطين الثقافي</div>
+    <div class="text-xs text-slate-500">المحتوى الشرعي للمصادر المذكورة، والمرجع النهائي أهل العلم.</div>
+  </div>
+</footer>
+
+<!-- درج بطاقة المصطلح -->
+<div id="drawerBackdrop" class="fixed inset-0 bg-black/60 z-50 hidden" aria-hidden="true"></div>
+<aside id="drawer" class="fixed top-0 bottom-0 left-0 w-full sm:w-[520px] bg-brand-card border-r border-brand-cardBorder z-50 overflow-y-auto custom-scroll transition-transform duration-300 drawer-enter" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+  <div id="drawerBody" class="p-6"></div>
+</aside>
+
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] hidden"></div>
+
+<script src="data/sources.js"></script>
+<script src="data/shadows.js"></script>
+<script src="data/tests.js"></script>
+<script src="data/terms.js"></script>
+<script src="assets/engine.js"></script>
+<script src="assets/vendor/chart.umd.min.js" defer></script>
+<script src="assets/app.js" defer></script>
+</body>
+</html>
